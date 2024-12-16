@@ -16,3 +16,18 @@ f.x.array[:] = rank
 with io.XDMFFile(comm, "FEniCSx_partition.xdmf", "w") as file:
     file.write_mesh(_mesh)
     file.write_function(f)
+
+
+# 建立网格、函数空间和函数
+_mesh = mesh.create_unit_square(comm, 8, 8)
+_mesh.geometry.x[:, :2] -= 0.5
+_mesh.geometry.x[:, :2] /= 2.0
+_mesh.geometry.x[:, :2] += 0.5
+
+Qs = fem.functionspace(_mesh, ("DG", 0))
+s = fem.Function(Qs)
+s.x.array[:] = rank
+
+with io.XDMFFile(comm, "FEniCSx_partition_s.xdmf", "w") as file:
+    file.write_mesh(_mesh)
+    file.write_function(s)
