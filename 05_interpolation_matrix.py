@@ -1,7 +1,6 @@
 import numpy as np
 from mpi4py import MPI
-from petsc4py import PETSc
-from dolfinx import fem, geometry, cpp, mesh, io, __version__
+from dolfinx import fem, cpp, mesh, io, __version__
 
 assert __version__ == "0.8.0", f"Version of FEniCSx does not match. V0.8.0 is needed, while {__version__} is used."
 
