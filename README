@@ -1,0 +1,14 @@
+Introduction to MPI and FEniCSx applications
+--------------------------------------------
+
+This is auxiliary material of my lecture at Tongji University, Dec 30, 2024.
+I mainly focus on the big picture of MPI and some relevant applications with FEniCSx.
+For better understanding, some comments in the code are mixed in Chinese and English.
+As MPI and FEniCSx are introduced with Python in this lecture, I would suggest to 
+create a conda environment with FEniCSx-v0.8.0, as
+$ conda create -n fenicsx080
+$ conda activate fenicsx080
+$ conda install -c conda-forge fenics-dolfinx=0.8.0 mpich
+
+To run code in parallel, for example
+$ mpirun -n 3 python 05_interpolation_matrix.py
